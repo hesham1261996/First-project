@@ -16,7 +16,7 @@ class CreateCoursesTable extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->string('title');
-            $table->integer('ststus')->default('0');
+            $table->integer('status');
             $table->string('link');
 
             $table->BigInteger('track_id')->unsigned();

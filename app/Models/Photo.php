@@ -9,7 +9,9 @@ class Photo extends Model
 {
     use HasFactory;
     protected $fillable =[
-        'filename'
+        'filename',
+        'photoable_id',
+        'photoable_type'
     ];
 
     public function photoable(){

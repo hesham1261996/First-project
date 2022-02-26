@@ -130,17 +130,17 @@
                         </ul>
                     </div>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Courses') }}
-                    </a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('tracks.index')}}">
                         <i class="ni ni-planet text-blue"></i> {{ __('Tracks') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('courses.index')}}">
+                        <i class="ni ni-planet text-blue"></i> {{ __('Courses') }}
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="ni ni-pin-3 text-orange"></i> {{ __('Videos') }}

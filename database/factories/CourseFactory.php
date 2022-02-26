@@ -18,7 +18,7 @@ class CourseFactory extends Factory
     {
         return [
             'title'     => $this->faker->randomLetter(),
-            'ststus'    => $this->faker->randomElement([0,1]),
+            'status'    => $this->faker->randomElement([0,1]),
             'link'      => $this->faker->url() ,
             'track_id'  => Track::all()->random()->id
         ];

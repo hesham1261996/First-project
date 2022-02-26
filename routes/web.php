@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\TrackController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -42,8 +43,11 @@ Route::group(['middleware' =>[ 'auth' , 'admin'] ], function () {
 
 
     Route::resource('admin/admins', AdminController::class, ['except' => ['show']]);
-    Route::resource('admin/tracks', TrackController::class , ['except' => ['show']]);
+
 	Route::resource('admin/users', UserController::class , ['except' => ['show']]);
+
+    Route::resource('admin/tracks', TrackController::class );
+    Route::resource('admin/courses', CourseController::class );
 	
 
 	

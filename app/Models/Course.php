@@ -12,7 +12,8 @@ class Course extends Model
     protected $fillable=[
         'title',
         'status',
-        'link'
+        'link', 
+        'track_id'
 
     ];
 
