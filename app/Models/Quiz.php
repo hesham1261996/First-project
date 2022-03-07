@@ -3,22 +3,26 @@
 namespace App\Models;
 
 use App\User;
-use App\Model\Question;
+use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
 use App\Models\Course ;
 
+
+
+
 class Quiz extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name'
+        'name',
+        'course_id'
     ];
 
     public function questions(){
-        return $this->hasMany(Question::class);
+        return $this->hasMany(Question::class,'quize_id');
     }
 
     public function course(){

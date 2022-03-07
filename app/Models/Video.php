@@ -12,9 +12,11 @@ class Video extends Model
     use HasFactory;
     protected $fillable = [
         'title',
-        'link'
+        'link',
+        'course_id'
+        
     ];
-    public function course (){
+    public function course(){
         return $this->belongsTo(Course::class);
     }
 }

@@ -10,10 +10,10 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('Courses') }}</h3>
+                                <h3 class="mb-0"><b>Track :</b> {{ $track->name }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('courses.create') }}" class="btn btn-sm btn-primary">{{ __('Add course') }}</a>
+                                <a href="/admin/tracks/{{$track->id}}/courses/create" class="btn btn-sm btn-primary">{{ __('Add course') }}</a>
                             </div>
                         </div>
                     </div>
@@ -30,10 +30,10 @@
                     </div>
                     @include('include.error')
 
-                    @if (count($courses))
+                    @if ($track->courses)
                         <div class="row">
                             
-                            @foreach ($courses as $course)
+                            @foreach ($track->courses as $course)
                             <div class="col-sm-4">
                                 
                                 <div class="card" style="width: 18rem;">
@@ -61,11 +61,7 @@
                     @else
                         there are not found Courses
                     @endif
-                    <div class="card-footer py-4">
-                        <nav class="d-flex justify-content-end" aria-label="...">
-                            {{ $courses->links() }}
-                        </nav>
-                    </div>
+
                 </div>
             </div>
         </div>

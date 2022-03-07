@@ -3,8 +3,16 @@
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\CousrseVideoController;
+use App\Http\Controllers\Admin\QuizController;
 use App\Http\Controllers\Admin\TrackController;
+use App\http\Controllers\Admin\TrackCourseController;
+use App\http\Controllers\Admin\CousrseQuizController;
+
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\QuizQuestionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -47,7 +55,20 @@ Route::group(['middleware' =>[ 'auth' , 'admin'] ], function () {
 	Route::resource('admin/users', UserController::class , ['except' => ['show']]);
 
     Route::resource('admin/tracks', TrackController::class );
+    Route::resource('admin/tracks.courses', TrackCourseController::class );
+
+
     Route::resource('admin/courses', CourseController::class );
+    Route::resource('admin/courses.videos', CousrseVideoController::class );
+    Route::resource('admin/courses.quizzes', CousrseQuizController::class );
+
+    Route::resource('admin/videos', VideoController::class);
+
+    Route::resource('admin/quizzes', QuizController::class);
+    Route::resource('admin/quizzes.questions', QuizQuestionController::class );
+
+
+    Route::resource('admin/questions', QuestionController::class);
 	
 
 	

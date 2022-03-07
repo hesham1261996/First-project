@@ -12,8 +12,9 @@ class Course extends Model
     protected $fillable=[
         'title',
         'status',
-        'link', 
-        'track_id'
+        'link',
+        'track_id' , 
+        
 
     ];
 
@@ -29,7 +30,7 @@ class Course extends Model
     }
 
     public function Quizzes(){
-        return $this->hasMany(Course::class);
+        return $this->hasMany(Quiz::class , 'course_id');
     }
 
     public function track(){
