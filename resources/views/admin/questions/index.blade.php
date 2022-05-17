@@ -44,9 +44,9 @@
                             <tbody>
                                 @foreach ($questions as $question)
                                     <tr>
-                                        <td title="{{$question->title}}"><a href="{{route('questions.show' , $question)}}"> {{\Str::limit($question->title , '50') }}
+                                        <td title="{{$question->title}}"><a href="{{route('questions.show' , $question)}}"> {{\Str::limit($question->title , '20') }}
                                         </a></td>
-                                        <td title="{{$question->answers}}">{{  \Str::limit( $question->answers  , '50') }}</td>
+                                        <td title="{{$question->answers}}">{{  \Str::limit( $question->answers  , '20') }}</td>
                                         <td>{{ $question->score}}</td>
                                         <td>
                                             <a href="/admin/quizzes/{{$question->quiz->id}}">{{ $question->quiz->name}}

@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\QuizController;
 use App\Http\Controllers\Admin\TrackController;
 use App\http\Controllers\Admin\TrackCourseController;
 use App\http\Controllers\Admin\CousrseQuizController;
-
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\QuestionController;
@@ -71,7 +70,7 @@ Route::group(['middleware' =>[ 'auth' , 'admin'] ], function () {
     Route::resource('admin/questions', QuestionController::class);
 	
 
-	
+    
 
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\Admin\ProfileController@edit']);
 

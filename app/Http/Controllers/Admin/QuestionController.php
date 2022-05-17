@@ -5,6 +5,8 @@ use App\Models\Question ;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\Promise\all;
+
 class QuestionController extends Controller
 {
     /**
@@ -34,20 +36,31 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request , Question $question)
     {
-        
+        $rules = [
+            'title' => 'required|min:20|max:1000',
+            'answers' => 'required|min:10|max:1000',
+            'right_answer' => 'required|min:20|max:1000',
+            'score' => 'required|integer|in:5,10,15,20,25,30',
+            
+        ];
+        $this->validate($request , $rules);
+        if($question->create($request->all())){
+
+            return redirect('admin/questions')->withStatus('question successfuly created');
+            
+            
+        }else{
+            
+            return redirect('admin/questions')->withStatus('something wrong try agene');
+        }
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Question $question)
     {
-        //
+        return view('admin.questions.show' , compact('question'));
     }
 
     /**
@@ -56,31 +69,35 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Question $question)
     {
-        //
+        return view('admin.questions.edit' , compact('question'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(Request $request, Question $question )
     {
-        //
+        $rules = [
+            'title' => 'required|min:20|max:1000' , 
+            'answers'=> 'required|min:20|max:1000' , 
+            'right_answer'=>'required|min:20|max:1000' , 
+            'score' => 'required|integer|in:5,10,15,20,25,30',
+        ];
+        $this->validate($request , $rules);
+        if($question->update($request->all())){
+            return redirect('admin/questions')->withStatus('question successfuly update');
+        }else{
+            return redirect('admin/questions/'.$question->id.'/edit')->withStatus('sonething wrong try agane');
+        }
+
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy(Question $question)
     {
-        //
+        $question->delete();
+        return redirect('admin/questions')->withStatus('question successfuly deleted');
+
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('questions Management')])
 
 @section('content')
-    @include('admin.users.partials.header', ['title' => __('Add Question')])   
+    @include('admin.users.partials.header', ['title' => __('Edit Question')])   
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -18,14 +18,15 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('questions.store') }}" enctype="multipart/form-data" autocomplete="off">
+                        <form method="post" action="{{ route('questions.update', $question ) }}" enctype="multipart/form-data" autocomplete="off">
                             @csrf
+                            @method('PUT')
                             
                             <h6 class="heading-small text-muted mb-4">{{ __('questions information') }}</h6>
                             <div class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-title">{{ __('title') }}</label>
-                                    <input type="text" name="title" id="input-title" class="form-control form-control-alternative{{ $errors->has('title') ? ' is-invalid' : '' }}"
+                                    <label class="form-control-label" for="input-title">{{ __('title') }} </label>
+                                    <input value="{{$question->title}}" type="text" name="title" id="input-title" class="form-control form-control-alternative{{ $errors->has('title') ? ' is-invalid' : '' }}"
                                         placeholder="{{ __('title') }}" value="{{ old('title') }}" required autofocus>
 
                                     @if ($errors->has('title'))
@@ -37,7 +38,7 @@
                                 <div class="form-group{{ $errors->has('answers') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-answers">{{ __('answers') }}</label>
                                     <textarea name="answers" id="input-answers" class="form-control form-control-alternative{{ $errors->has('answers') ? ' is-invalid' : '' }}"
-                                        placeholder="{{ __('answers') }}"  required></textarea>
+                                        placeholder="{{ __('answers') }}"  required>{{$question->answers}}</textarea>
 
                                     @if ($errors->has('answers'))
                                         <span class="invalid-feedback" role="alert">
@@ -47,7 +48,7 @@
                                 </div>
                                 <div class="form-group{{ $errors->has('right_answer') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-title">{{ __('right_answer') }}</label>
-                                    <input type="text" name="right_answer" id="input-right_answer" class="form-control form-control-alternative{{ $errors->has('right_answer') ? ' is-invalid' : '' }}"
+                                    <input value="{{$question->right_answer}}" type="text" name="right_answer" id="input-right_answer" class="form-control form-control-alternative{{ $errors->has('right_answer') ? ' is-invalid' : '' }}"
                                         placeholder="{{ __('right_answer') }}" value="{{ old('right_answer') }}" required >
 
                                     @if ($errors->has('title'))
@@ -62,9 +63,9 @@
                                     <select name="score" class="form-control" required>
                                         
                                         
-                                        <option value="10">10</option>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
+                                        <option <?php if($question->score == 10) {echo 'selected';} ?> value="10">10</option>
+                                        <option <?php if($question->score == 20) {echo 'selected';} ?> value="20">20</option>
+                                        <option <?php if($question->score == 30) {echo 'selected';} ?> value="30">30</option>
                                         
                                         
                                         
@@ -80,7 +81,7 @@
 
                                     <select name="quize_id" class="form-control" required>
                                         @foreach (\App\models\quiz::all() as $quiz)
-                                        <option value="{{$quiz->id}}">{{$quiz->name}}</option>
+                                        <option  <?php if($question->quize_id == $quiz->id) echo 'selected'; ?> value="{{$quiz->id}}">{{$quiz->name}}</option>
                                         @endforeach
                                         
                                         
