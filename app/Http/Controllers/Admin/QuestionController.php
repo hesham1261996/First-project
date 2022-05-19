@@ -58,17 +58,7 @@ class QuestionController extends Controller
 
     }
 
-    public function show(Question $question)
-    {
-        return view('admin.questions.show' , compact('question'));
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Question $question)
     {
         return view('admin.questions.edit' , compact('question'));

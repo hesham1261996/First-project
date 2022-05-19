@@ -67,7 +67,7 @@ Route::group(['middleware' =>[ 'auth' , 'admin'] ], function () {
     Route::resource('admin/quizzes.questions', QuizQuestionController::class );
 
 
-    Route::resource('admin/questions', QuestionController::class);
+    Route::resource('admin/questions', QuestionController::class , ['except' => ['show']]);
 	
 
     
