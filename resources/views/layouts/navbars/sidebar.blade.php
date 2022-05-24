@@ -1,5 +1,5 @@
 <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
-    <div class="container-fluid">
+    <div class="container-fluid ">
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,7 @@
             </li>
         </ul>
         <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main" style= "text-align: -webkit-center">
             <!-- Collapse header -->
             <div class="navbar-collapse-header d-md-none">
                 <div class="row">
@@ -79,7 +79,7 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard') }}">
+                    <a class="nav-link" href="{{ route('home') }}">
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
@@ -132,28 +132,28 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('tracks.index')}}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Tracks') }}
+                        <i class="fas fa-warehouse"></i> {{ __('Tracks') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('courses.index')}}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Courses') }}
+                        <i class="fas fa-graduation-cap"></i> {{ __('Courses') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('videos.index')}}">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Videos') }}
+                        <i class="fab fa-youtube"></i> {{ __('Videos') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('quizzes.index')}}">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Quizzes') }}
+                        <i class="fas fa-pen-square"></i> {{ __('Quizzes') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('questions.index')}}">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Questions') }}
+                        <i class="fas fa-question"></i> {{ __('Questions') }}
                     </a>
                 </li>
             </ul>

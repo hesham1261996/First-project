@@ -43,7 +43,7 @@
                             <tbody>
                                 @foreach ($quizzes as $quiz)
                                     <tr>
-                                        <td><a href="{{route('quizzes.show' , $quiz)}}"> {{\Str::limit($quiz->name , '20') }}
+                                        <td><a href="{{route('quizzes.show' , $quiz)}}"> {{\Str::limit($quiz->name , '50') }}
                                         </a></td>
                                         <td>{{ count($quiz->questions) }}</td>
                                         <td>
