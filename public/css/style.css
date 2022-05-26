@@ -43,3 +43,33 @@ body {
 	padding: 8px;
 	border-radius: 10px 20px;
 }
+.home_picture{
+	height: 600px;
+	background-image: url("../images/defoulte.jpg");
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	background-size: cover;
+}
+.home_picture .background_text {
+	padding-top: 200px;
+	padding-left: 40px;
+}
+.home_picture .background_text p:nth-child(1){
+	font-size: 70px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	color: #fff;
+}
+.home_picture .background_text p:nth-child(2){
+	margin-top: 0;
+	padding-top: 0;
+	color: #fff;
+	font-weight: bold;
+}
+.home_picture .background_text p strong {
+	color:#71dd71 ;
+}
+.btn-primary {
+	background-color: #1c5996;
+	border-color: #1c5996;
+}
