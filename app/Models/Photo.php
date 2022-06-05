@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +16,6 @@ class Photo extends Model
     ];
 
     public function photoable(){
-        return $this->morphTo();
+        return $this->morphTo('App\Models\Photo');
     }
 }

@@ -1,3 +1,11 @@
 @extends('layouts.user_layout')
-@extends('include.home_picture')
+
+@section('content')
+
+    @extends('include.mycourses')
+    @extends('include.home_picture')
+    
+    
+@endsection
+
 
