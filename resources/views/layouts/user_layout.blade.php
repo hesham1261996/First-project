@@ -73,8 +73,9 @@
 
 
     @yield('content')
+    
 
-
+    
     {{-- @include('includes.footer') --}}
 
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>

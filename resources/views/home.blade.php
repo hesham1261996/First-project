@@ -1,9 +1,12 @@
 @extends('layouts.user_layout')
 
+
 @section('content')
 
-    @extends('include.mycourses')
-    @extends('include.home_picture')
+    @include('include.home_picture')
+    @include('include.mycourses')
+    @include('include.track_famous_courses')
+    
     
     
 @endsection
