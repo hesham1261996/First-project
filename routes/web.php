@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\QuizQuestionController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// user route 
 Route::get('/','App\Http\Controllers\HomeController@index')->name('home');
+Route::get('/home','App\Http\Controllers\HomeController@index')->name('home');
+Auth::routes();
+
+Route::get('/courses/{slug}','App\Http\Controllers\CourseController@index');
+
 
 Route::get('/dashboard', function () {
     return view('admin/dashboard');

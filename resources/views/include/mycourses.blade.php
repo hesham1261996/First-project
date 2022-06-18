@@ -29,9 +29,9 @@
             <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg"
               data-size="1600x1067">
               @if($course->photo)
-              <img src="/images/{{$course->photo->filename}}">
+              <a href="/courses/{{$course->slug}}"><img src="/images/{{$course->photo->filename}}"></a>
               @else
-              <img src="/images/defoulte.jpg">
+              <a href="/courses/{{$course->slug}}"><img src="/images/defoulte.jpg"></a>
               @endif
 
             </a>
@@ -39,7 +39,7 @@
         </div>
         <div class="col-sm-4">
           
-            <h3><a href="">{{\Str::limit($course->title, 30)}}</a></h3>
+            <h3><a href="/courses/{{$course->slug}}">{{\Str::limit($course->title, 30)}}</a></h3>
             <h4>Track: <a href="">{{$course->track->name}}</a></h4><br>
             <h5><a href="">{{count($course->users)}} users are learning this course.</a></h5>
         </div>

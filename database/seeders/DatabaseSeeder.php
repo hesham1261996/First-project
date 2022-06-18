@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([UsersTableSeeder::class]);
-        $users = User::factory(10)->create();
+        $users = User::factory(20)->create();
 
-        $tracks =Track::factory(10)->create();
+        $tracks =Track::factory(20)->create();
 
         foreach($users as $user ){  //seed to pivot table between users & tracks 
             $tracks_id = [] ;
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             $user->tracks()->sync( $tracks_id ) ;
         }
 
-        $courses = Course::factory(10)->create();
+        $courses = Course::factory(50)->create();
 
         foreach($users as $user ){  //seed to pivot table between users & courses 
             $Courses_id = [] ;
@@ -45,11 +45,11 @@ class DatabaseSeeder extends Seeder
 
 
         
-        Photo::factory(10)->create();
-        Video::factory(10)->create();
+        Photo::factory(50)->create();
+        Video::factory(50)->create();
 
 
-        $Quiz = Quiz::factory(10)->create();
+        $Quiz = Quiz::factory(50)->create();
 
         foreach($users as $user ){  //seed to pivot table between users & Quizzes 
             $Quizzes_id = [] ;
@@ -58,6 +58,6 @@ class DatabaseSeeder extends Seeder
             $user->Quizzes()->sync( $Courses_id ) ;
         }
 
-        Question::factory(10)->create();
+        Question::factory(50)->create();
     }
 }

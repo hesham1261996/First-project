@@ -34,6 +34,17 @@
                                         </span>
                                     @endif
                                 </div>
+                                    <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name">{{ __('description') }}</label>
+                                        <input type="text" name="description" id="input-title" class="form-control form-control-alternative{{ $errors->has('description') ? ' is-invalid' : '' }}"
+                                            placeholder="{{ __('Description') }}" value="{{ old('description') }}" required>
+    
+                                        @if ($errors->has('description'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('description') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 <div class="form-group{{ $errors->has('link') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-link">{{ __('link') }}</label>
                                     <input type="text" name="link" id="input-link" class="form-control form-control-alternative{{ $errors->has('link') ? ' is-invalid' : '' }}" 

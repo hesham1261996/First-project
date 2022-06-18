@@ -24,8 +24,8 @@ class PhotoFactory extends Factory
         $photoablatype = $photoablaid == $userid ? 'App\Models\User' : 'App\Models\Course' ;
 
         return [
-            'filename'=>$this->faker->randomElement(['1.Jpg' ,'2.Jpg' , '3.Jpg' , '4.Jpg' ,
-                                                        '5.Jpg' , '6.Jpg' , '7.Jpg']),
+            'filename'=>$this->faker->randomElement(['1.Jpg' ,'2.Jpeg' , '3.Jpg' , '4.Jpg' ,
+                                                        '5.Jpg' , '6.Jpg' , '7.Jpg' , '8.jpg', '9.jpg' , '10.jpg']),
             'photoable_id'=> $photoablaid ,
             'photoable_type' => $photoablatype
         ];

@@ -16,11 +16,14 @@ class CourseFactory extends Factory
     protected $model = Course::class;
     public function definition()
     {
+        $title = $this->faker->sentence ; 
         return [
-            'title'     => $this->faker->randomLetter(),
-            'status'    => $this->faker->randomElement([0,1]),
-            'link'      => $this->faker->url() ,
-            'track_id'  => Track::all()->random()->id
+            'title'         => $title,
+            'description'   => $this->faker->randomLetter(),
+            'slug'          => strtolower(str_replace(' ','-', $title)),
+            'status'        => $this->faker->randomElement([0,1]),
+            'link'          => $this->faker->url() ,
+            'track_id'      => Track::all()->random()->id
         ];
     }
 }

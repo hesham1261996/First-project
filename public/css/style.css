@@ -45,7 +45,7 @@ body {
 }
 .home_picture{
 	height: 600px;
-	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url("../images/2015-04-24-1429900455-2487016-Kidscoding.jpg");
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url("../images/4.jpg");
 	background-repeat: no-repeat;
 	background-origin: content-box;
 	background-size: cover;
@@ -308,4 +308,93 @@ footer div.footer-copyright {
 footer div.footer-copyright a {
 	color: #fff;
 	text-decoration: none;
+}
+
+/* style single course */
+
+.course-herder {
+	margin-top: 50px ;
+	margin-bottom: 50px;
+	background:#333;
+	font-family: lato;
+}
+.course-herder div div:nth-child(1) {
+	padding: 30px;
+}
+.course-herder div div:nth-child(1) h2 {
+	color: #fff;
+	padding-left: 20px;
+}
+.course-herder div div:nth-child(1) p {
+	color: #fff;
+	padding-left: 25px;
+}
+.course-herder div div:nth-child(1) strong {
+	color: #fff;
+	padding-left: 20px;
+	
+}
+.course-herder div div:nth-child(1) a {
+	color: rgb(155, 149, 149);
+	padding-left: 10px;
+	transition: 1s ease-in-out ;
+}
+.course-herder div div:nth-child(1) a:hover {
+	color: #fff;
+
+}
+.course-herder div div:nth-child(1) div {
+	color: #fff;
+	padding-left: 20px;
+}
+.course-herder div div:nth-child(1) span {
+	color: #fff;
+	padding-left: 20px;
+}
+.course-herder div div:nth-child(1) .text-dangeer ,
+.course-herder div div:nth-child(1) .text-success  {
+	padding: 5px 10px ;
+	margin-right: 20px ;
+	font-weight: 400 ;
+	font-size: 15px;
+	border-radius: 10px ;
+	background: #fff;
+	width: 60px;
+}
+.course-herder div div:nth-child(1) .text-success {
+	color: green;
+}
+.course-herder div div:nth-child(1) .text-dangeer {
+	color: #fff;
+	background: #8e1717;
+}
+.course-herder div div:nth-child(2) .course-image {
+	width: 100%;
+	height: 100%;
+}
+.videos {
+	padding-top:20px ;
+	padding-bottom: 20px ;
+}
+.videos .video {
+	padding: 15px 15px 15px 25px ;
+	margin-bottom: 15px;
+	background-color: #efefef;
+	transition: .2s ease-in-out;
+}
+.videos .video:hover {
+	color: #fff;
+	background-color: #1c5991;
+}
+.videos .video:hover a {
+	color: #fff;
+	text-decoration: none;
+}
+.videos .video .fa-youtube::before {
+	color: #bb1414;
+	margin-right:10px ;
+}
+.videos h3 {
+	margin-bottom: 30px;
+	margin-left: 20px;
 }
