@@ -2,6 +2,14 @@
 
 @section('content')
     <div class="container">
+        @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('status') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
         <div class="row">
             <div class="course-herder">
                 <div class="row">
@@ -37,7 +45,7 @@
                     @if(count($course->videos) > 0 )
                         @foreach ($course->videos as $video)
                             <div class="video">
-                                <a href=""><i class="fab fa-youtube"></i>{{$video->title}}</a>
+                                <a href="{{$video->link}}"data-toggle="modal" data-target="#show-video"><i class="fab fa-youtube"></i>{{$video->title}}</a>
                             </div>
                         @endforeach
                         
@@ -47,5 +55,43 @@
                 </div>
             </div>
         </div>
+        <hr>
+        <div class="quizzs">
+            <h3>Course quizzs</h3>
+            <div class="row">
+                <div class="col-sm-12">
+                    @if(count($course->Quizzes) > 0 )
+                        @foreach ($course->Quizzes as $quiz)
+                            <div class="quiz">
+                                <a target="_blank" href="/courses/{{$course->slug}}/quizzs/{{$quiz->name}}"></i>{{$quiz->name}}</a>
+                            </div>
+                        @endforeach
+                        
+                    @else
+                        <div class="alert alert-secondary"> this course dose not include quiz</div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    
     </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="show-video" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">video preview</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <iframe width="470" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
 @endsection

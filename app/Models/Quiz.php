@@ -10,9 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Course ;
 
-
-
-
 class Quiz extends Model
 {
     use HasFactory;

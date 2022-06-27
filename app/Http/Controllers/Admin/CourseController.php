@@ -23,12 +23,15 @@ class CourseController extends Controller
 
     public function store(Request $request )
     {
+        
         $rouls = [
             'title' => 'required|min:3',
             'link' => 'required|min:5',
             'status' => 'required|in:0,1'
         ];
         $this->validate($request , $rouls);
+
+        $request['slug'] = strtolower(str_replace(' ','-',$request->title));
 
         $course = Course::create($request->all());
 

@@ -39,10 +39,12 @@ class QuestionController extends Controller
     public function store(Request $request , Question $question)
     {
         $rules = [
-            'title' => 'required|min:20|max:1000',
-            'answers' => 'required|min:10|max:1000',
-            'right_answer' => 'required|min:20|max:1000',
+            'title' => 'required|min:5|max:1000',
+            'answers' => 'required|min:5|max:1000',
+            'right_answer' => 'required|min:5|max:1000',
             'score' => 'required|integer|in:5,10,15,20,25,30',
+            'quize_id' => 'required|integer' ,
+            'type' => 'required'
             
         ];
         $this->validate($request , $rules);
@@ -68,10 +70,12 @@ class QuestionController extends Controller
     public function update(Request $request, Question $question )
     {
         $rules = [
-            'title' => 'required|min:20|max:1000' , 
-            'answers'=> 'required|min:20|max:1000' , 
-            'right_answer'=>'required|min:20|max:1000' , 
+            'title' => 'required|min:5|max:1000' , 
+            'answers'=> 'required|min:5|max:1000' , 
+            'right_answer'=>'required|min:5|max:1000' , 
             'score' => 'required|integer|in:5,10,15,20,25,30',
+            'quize_id' => 'required|integer' ,
+            'type' => 'required'
         ];
         $this->validate($request , $rules);
         if($question->update($request->all())){

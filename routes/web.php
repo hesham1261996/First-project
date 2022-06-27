@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\QuizQuestionController;
-
+use App\Http\Controllers\searchController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,8 +34,11 @@ Route::get('/home','App\Http\Controllers\HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/courses/{slug}','App\Http\Controllers\CourseController@index');
+Route::get('/courses/{slug}/quizzs/{name}','App\Http\Controllers\QuizController@index')->name('question');
+Route::post('/courses/{slug}/quizzs/{name}','App\Http\Controllers\QuizController@submit');
+Route::get('/search' , 'App\Http\controllers\SearchController@index');
 
-
+// admin route
 Route::get('/dashboard', function () {
     return view('admin/dashboard');
 })->middleware(['auth' , 'admin'])->name('dashboard');

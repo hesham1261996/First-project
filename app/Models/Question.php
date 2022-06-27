@@ -14,7 +14,8 @@ class Question extends Model
         'answers' ,
         'right_answer',
         'score',
-        'quize_id'
+        'quize_id',
+        'type'
     ];
     public function quiz(){
         return $this->belongsTo(Quiz::class , 'quize_id');
