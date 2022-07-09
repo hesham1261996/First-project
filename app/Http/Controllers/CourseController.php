@@ -17,10 +17,17 @@ class CourseController extends Controller
         return view('course' , compact('course'));
     }
     public function enroll($slug){
+
         $course = Course::where('slug' , $slug )->first();
         $user= auth()->user() ;
+
+        $track = $course->track ; 
+
+        $user->tracks()->attach([$track->id]); 
+        
+
         $user->courses()->attach([$course->id]); 
-        $course = Course::where('slug' , $slug )->first();
+
         return redirect('/courses/'.$slug)->withStatus('you have enrolled');
     }
 }

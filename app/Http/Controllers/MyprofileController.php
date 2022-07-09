@@ -13,7 +13,8 @@ class MyprofileController extends Controller
     }
     public function index(){
         $user = auth()->user();
-        return view('myprofile' , compact('user'));
+        $tracks = $user->tracks ;
+        return view('myprofile' , compact('user' , 'tracks'));
     }
     public function update(Request $request){
         $user = auth()->user();

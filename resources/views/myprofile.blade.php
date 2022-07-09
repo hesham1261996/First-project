@@ -71,6 +71,23 @@
                 @endif
                 </div>
             </div>
+
+            <div class="user-tracks">
+                <div class="heading">
+                    <h4>You are Tracks</h4>
+                    <div class="famous-tracks">
+                        
+                        <div class="tracks">
+                            <ul class="list-unstyled">
+                            @foreach($tracks as $track)
+                                <li><a class="btn track-name" href="/tracks/{{$track->name}}">{{$track->name}}</a></li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    </div>
+
+                
+            </div>
         </div>
     </div>
 @endsection

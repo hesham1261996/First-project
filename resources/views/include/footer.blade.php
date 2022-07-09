@@ -12,9 +12,7 @@
 
         <!-- Content -->
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <p>You can now learn free courses .</p>
 
       </div>
       <!-- Grid column -->
@@ -29,16 +27,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Link 1</a>
+            <a href="/mycourses">MY Courses</a>
           </li>
           <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
+            <a href="myprofile">My Profile</a>
           </li>
         </ul>
 
@@ -60,12 +52,6 @@
           <li>
             <a href="#!">Link 2</a>
           </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
         </ul>
 
       </div>
@@ -81,16 +67,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Link 1</a>
+            <a href="https://www.facebook.com/hesham7197" target="_blank"><i class="fab fa-facebook-f"></i>acebook</a>
           </li>
           <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
+            <a href="https://github.com/hesham1261996" target="_blank"><i class="fab fa-github"></i> github</a>
           </li>
         </ul>
 
@@ -108,17 +88,27 @@
   <!-- Call to action -->
   <ul class="list-unstyled list-inline text-center py-2">
     <li class="list-inline-item">
-      <h5 class="mb-1">Register for free</h5>
+      @if (Auth::user() )
+        <h5></h5>
+      @else
+        <h5 class="mb-1">Register for free</h5>
+      @endif
     </li>
     <li class="list-inline-item">
-      <a href="#!" class="btn btn-danger btn-rounded">SIGN UP!</a>
+      @if (Auth::user() )
+      <a href="/register" class="btn btn-danger btn-rounded"> My Profile </a>
+      @else
+      <a href="/register" class="btn btn-danger btn-rounded">  SIGN UP!</a>OR
+      <a href="/login" class="btn btn-danger btn-rounded">   Login </a> 
+
+      @endif
     </li>
   </ul>
   <!-- Call to action -->
   
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+  <div class="footer-copyright text-center py-3">© 2022 Copyright:
     <a href="/"> Learncode.com</a>
   </div>
   <!-- Copyright -->

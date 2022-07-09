@@ -37,6 +37,7 @@
 
             <div class="collapse navbar-collapse links" id="navbarSupportedContent">
                 <form method="GET" action="/search" class="form-inline my-2 my-lg-0 search-form">
+                    @csrf
                     <input name="q" placeholder="find your course..." class="form-control mr-sm-2" type="search" aria-label="Search">
                     <i class="fas fa-search"></i>
                 </form>
@@ -46,12 +47,16 @@
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="/allcourses">All Courses</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link @auth dropdown-toggle @endauth" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link @auth dropdown-toggle @endauth" href="/login" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @auth
-                            {{\Str::limit(auth()->user()->name, 10)}}
+                            {{\Str::limit(auth()->user()->name, 3)}}
                             @endauth
                             @guest
                             Login

@@ -14,6 +14,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
+
         $this->middleware(['owner']);
     }
     public function index()
