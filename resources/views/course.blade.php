@@ -37,18 +37,37 @@
                 </div>
             </div>
         </div>
+        <div class="enroll-form">
+            @if (count(auth()->user()->courses()->where('slug' , $course->slug )->get()) > 0 )
+                <div class="alert alert-success">Already Enrolled</div>
+            @else
+            <form action="/courses/{{$course->slug}}" method="POST">
+                @csrf
+                <input type="submit" value="Enroll" class="btn btn-default btn-enroll">
+            </form>
+            @endif
+
+        </div>
+        <div class="clearfix"></div>
         {{-- get video --}}
         <div class="videos">
             <h3>Course videos</h3>
             <div class="row">
                 <div class="col-sm-12">
                     @if(count($course->videos) > 0 )
-                        @foreach ($course->videos as $video)
-                            <div class="video">
+                        @if (count((auth()->user()->courses()->where('slug' , $course->slug )->get())) > 0)
+                            @foreach ($course->videos as $video)
+                                <div class="video">
+                                    <a href="{{$video->link}}"data-toggle="modal" data-target="#show-video"><i class="fab fa-youtube"></i>{{$video->title}}</a>
+                                </div>
+                            @endforeach
+                        @else
+                            @foreach ($course->videos as $video)
+                            <div class="video disabled">
                                 <a href="{{$video->link}}"data-toggle="modal" data-target="#show-video"><i class="fab fa-youtube"></i>{{$video->title}}</a>
                             </div>
-                        @endforeach
-                        
+                            @endforeach
+                        @endif
                     @else
                         <div class="alert alert-secondary"> this course dose not include video</div>
                     @endif
@@ -56,28 +75,31 @@
             </div>
         </div>
         <hr>
+        @if (count((auth()->user()->courses()->where('slug' , $course->slug )->get())) > 0)
         <div class="quizzs">
             <h3>Course quizzs</h3>
             <div class="row">
                 <div class="col-sm-12">
                     @if(count($course->Quizzes) > 0 )
-                        @foreach ($course->Quizzes as $quiz)
-                            <div class="quiz">
-                                <a target="_blank" href="/courses/{{$course->slug}}/quizzs/{{$quiz->name}}"></i>{{$quiz->name}}</a>
-                            </div>
-                        @endforeach
                         
+                    @foreach ($course->Quizzes as $quiz)
+                        <div class="quiz">
+                            <a target="_blank" href="/courses/{{$course->slug}}/quizzs/{{$quiz->name}}"></i>{{$quiz->name}}</a>
+                        </div>
+                    @endforeach
                     @else
                         <div class="alert alert-secondary"> this course dose not include quiz</div>
                     @endif
                 </div>
             </div>
         </div>
+        @endif
     
     </div>
 
 
 <!-- Modal -->
+@if (count((auth()->user()->courses()->where('slug' , $course->slug )->get())) > 0)
 <div class="modal fade" id="show-video" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -91,6 +113,7 @@
     </div>
     </div>
 </div>
+@endif
 
 
 

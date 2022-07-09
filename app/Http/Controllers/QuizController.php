@@ -11,6 +11,10 @@ use PhpParser\Node\Expr\AssignOp\Div;
 
 class QuizController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index($slug , $name) {
 
         $course = Course::where('slug' , $slug)->first();

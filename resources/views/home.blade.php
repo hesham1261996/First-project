@@ -4,11 +4,11 @@
 @section('content')
 
     @include('include.home_picture')
-    @include('include.mycourses')
+    @auth
+        @include('include.mycourses')
+    @endauth
+
     @include('include.track_famous_courses')
-    
-    
-    
 @endsection
 
 

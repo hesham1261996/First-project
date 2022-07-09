@@ -34,9 +34,14 @@ Route::get('/home','App\Http\Controllers\HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/courses/{slug}','App\Http\Controllers\CourseController@index');
+Route::post('/courses/{slug}','App\Http\Controllers\CourseController@enroll');
 Route::get('/courses/{slug}/quizzs/{name}','App\Http\Controllers\QuizController@index')->name('question');
 Route::post('/courses/{slug}/quizzs/{name}','App\Http\Controllers\QuizController@submit');
 Route::get('/search' , 'App\Http\controllers\SearchController@index');
+Route::get('/tracks/{name}' , 'App\Http\controllers\TrackController@index');
+Route::get('/mycourses' , 'App\Http\controllers\MycoursesController@index');
+Route::get('/myprofile' , 'App\Http\controllers\MyprofileController@index');
+Route::post('/myprofile' , 'App\Http\controllers\MyprofileController@update');
 
 // admin route
 Route::get('/dashboard', function () {

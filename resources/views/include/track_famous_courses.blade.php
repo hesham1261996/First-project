@@ -41,37 +41,41 @@
             </div>
             @endif
             @if ($i == 2 )
-            <div class="recommended-courses ">
-                <h4>Recommended courses for you</h4>
-                <div class="courses">
+            @auth
+                <div class="recommended-courses ">
                     
-                    @foreach($recommended_courss as $course)
-                        <div class="course">
-                            <div class="row">
-                                <div class="col-sm-2">
-                                    <div class="course-image">
-                                        @if ($course->photo)
-                                            <a href="/courses/{{$course->slug}}"><img  src="/images/{{$course->photo->filename}}" alt=""></a>
-                                        @else
-                                            <a href="/courses/{{$course->slug}}"><img src="/images/defoulte.jpg" alt=""></a>
-                                        @endif
-                                    </div>        
-                                </div>
-                                <div class="col-sm">
-                                    <div class="course-details">
-                                        <a href="</a>"><p class="course-title">{{\Str::limit($course->title,60)}}</p></a>
-                                        <span style="margin-left: 10px" class="{{$course->status == 0 ?'text-success' : 'text-danger' }} " >{{$course->status == 0 ? "FREE" : "PAID" }}</span>
-                                        <span style="  margin-left: 15%" ><strong>{{count($course->users)}}</strong> users</span>
+                    <h4>Recommended courses for you</h4>
+                    <div class="courses">
+                        
+                        @foreach($recommended_courss as $course)
+                            <div class="course">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="course-image">
+                                            @if ($course->photo)
+                                                <a href="/courses/{{$course->slug}}"><img  src="/images/{{$course->photo->filename}}" alt=""></a>
+                                            @else
+                                                <a href="/courses/{{$course->slug}}"><img src="/images/defoulte.jpg" alt=""></a>
+                                            @endif
+                                        </div>        
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="course-details">
+                                            <a href="</a>"><p class="course-title">{{\Str::limit($course->title,60)}}</p></a>
+                                            <span style="margin-left: 10px" class="{{$course->status == 0 ?'text-success' : 'text-danger' }} " >{{$course->status == 0 ? "FREE" : "PAID" }}</span>
+                                            <span style="  margin-left: 15%" ><strong>{{count($course->users)}}</strong> users</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        
-                    @endforeach
-                    </ul>
+                            
+                            
+                        @endforeach
+                        </ul>
+                    </div>
+                    
                 </div>
-            </div>
+            @endauth
             @endif
             <?php $i++ ;  ?>
         @endforeach    

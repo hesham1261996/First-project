@@ -143,7 +143,7 @@ body {
 #courses-header h4 {
 	display: inline-block;
 	margin-left: 220px;
-	float: left;
+	/* float: left ; */
 	font-family: 'Lato';
 }
 #courses-header a {
@@ -334,7 +334,7 @@ footer div.footer-copyright a {
 
 .course-herder {
 	margin-top: 50px ;
-	margin-bottom: 50px;
+	margin-bottom: 5px;
 	background:#333;
 	font-family: lato;
 }
@@ -392,6 +392,27 @@ footer div.footer-copyright a {
 	width: 100%;
 	height: 100%;
 }
+.enroll-form {
+	width: 30%;
+	float: right;
+	margin-bottom: 30px;
+}
+.enroll-form form {
+	margin-left:-10px ;
+	margin-right:-15px ;
+}
+.enroll-form .btn-enroll {
+	width: 100%;
+	letter-spacing: 2px;
+	font-size: 22px;
+	height: 60px;
+	font-family: lato ;
+	background: #1470bf ;
+	border-color: #1470bf;
+	color: #fff;
+
+
+}
 
 /* style video*/
 .videos {
@@ -420,6 +441,9 @@ footer div.footer-copyright a {
 .videos h3 {
 	margin-bottom: 30px;
 	margin-left: 20px;
+}
+.disabled a{
+	cursor: not-allowed;
 }
 
 /*style quiz */
@@ -479,9 +503,7 @@ footer div.footer-copyright a {
 	height: 150px;
 	max-height: 150px;
 }
-.search-courses .course .col-sm-8 {
-	/* border: 1px solid gray; */
-}
+
 .search-courses {
 	margin-top: 50px;
 
@@ -518,4 +540,75 @@ footer div.footer-copyright a {
 .search-courses .course .course-info h5 span .piad-badge {
 	color: #fff;
 	background: #8e1717;
+} 
+
+/* track-courses style */
+
+.track-courses {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.track-courses h2 {
+	margin-bottom: 20px;
+	margin-top: 50px;
+	font-family: 'Lato';
+	text-align: center;
+}
+
+.track-courses .course {
+    border: 1px solid #eaeaea;
+    padding-bottom: 20px;
+    box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+	margin-bottom:10px ;
+}
+
+.track-courses .course h6 {
+	padding: 10px;
+	min-height: 60px;
+}
+.track-courses .course img {
+	width: 255px;
+	height: 170px;
+	transition: .1s ease-in-out;
+}
+
+.track-courses .course img:hover {
+	opacity: .8;
+}
+
+/* user profile */
+
+.user-profile{
+	margin-top:50px ;
+	margin-bottom: 50px;
+}
+.user-profile h3 {
+	margin-bottom: 30px;
+}
+
+.user-profile .user-info .user-image img {
+	width: 100%;
+	height: auto;
+}
+.user-profile .user-info .user-data {
+	margin-top: 20px;
+	padding: 20px;
+}
+.user-profile .user-info .user-data ul li {
+	margin-bottom: 15px;
+
+}
+.user-profile .user-info .user-data ul li:nth-child(1){
+	color: #6d6c6d;
+}
+.user-profile .user-info .user-data ul li:nth-child(2) {
+	color: #6d6c6d;
+	font-weight: bold;
+}
+.user-profile .user-info  form {
+	display: none;
+}
+.user-profile .user-info .user-image .upload {
+	margin: 10px;
+	text-align: center;
 }
