@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\QuizQuestionController;
+use App\Http\Controllers\AllcoursesController;
 use App\Http\Controllers\searchController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//socialite 
+Route::get('login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback', 'App\Http\Controllers\Auth\LoginController@handleProviderCallback');
 
 // user route 
 Route::get('/','App\Http\Controllers\HomeController@index')->name('home');
@@ -42,6 +45,9 @@ Route::get('/tracks/{name}' , 'App\Http\controllers\TrackController@index');
 Route::get('/mycourses' , 'App\Http\controllers\MycoursesController@index');
 Route::get('/myprofile' , 'App\Http\controllers\MyprofileController@index');
 Route::post('/myprofile' , 'App\Http\controllers\MyprofileController@update');
+Route::get('/allcourses' ,'App\Http\Controllers\AllcoursesController@index' );
+Route::get('/contact' ,'App\Http\Controllers\ContactController@index' );
+Route::post('/contact' ,'App\Http\Controllers\ContactController@send' );
 
 // admin route
 Route::get('/dashboard', function () {

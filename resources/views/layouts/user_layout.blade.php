@@ -50,7 +50,7 @@
                         <a class="nav-link" href="/allcourses">All Courses</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact</a>
+                        <a class="nav-link" target="_blank" href="/contact">Contact</a>
                     </li>
 
                     <li class="nav-item dropdown">
